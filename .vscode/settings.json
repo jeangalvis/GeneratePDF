@@ -7,6 +7,7 @@
     "Extensions",
     "Interfaces",
     "Repository",
-    "UnitOfWork"
+    "UnitOfWork",
+    "Profiles"
   ]
 }
