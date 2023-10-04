@@ -4,6 +4,7 @@
     "Entities",
     "Configurations and migrations",
     "Configurations",
-    "Extensions"
+    "Extensions",
+    "Interfaces"
   ]
 }
