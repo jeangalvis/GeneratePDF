@@ -6,6 +6,7 @@
     "Configurations",
     "Extensions",
     "Interfaces",
-    "Repository"
+    "Repository",
+    "UnitOfWork"
   ]
 }
