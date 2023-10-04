@@ -3,6 +3,7 @@
     "GitIgnore",
     "Entities",
     "Configurations and migrations",
-    "Configurations"
+    "Configurations",
+    "Extensions"
   ]
 }
