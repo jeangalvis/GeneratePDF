@@ -1,5 +1,7 @@
-namespace API.Dtos;
-public class VentasxMesDto
+using Dominio.Entities;
+
+namespace Dominio.Views;
+public class VentasxAnio : BaseEntity
 {
     public string NombreProducto { get; set; }
     public int Cantidad { get; set; }
