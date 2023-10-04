@@ -10,6 +10,7 @@
     "UnitOfWork",
     "Profiles",
     "Controllers",
-    "Dto"
+    "Dto",
+    "Profiles"
   ]
 }
