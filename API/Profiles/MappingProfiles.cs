@@ -5,7 +5,7 @@ using Dominio.Views;
 namespace API.Profiles;
 public class MappingProfiles : Profile
 {
-    protected MappingProfiles()
+    public MappingProfiles()
     {
         CreateMap<VentasxAnio, VentasxAnioDto>().ReverseMap();
     }
