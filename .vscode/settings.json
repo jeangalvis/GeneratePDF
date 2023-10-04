@@ -5,6 +5,7 @@
     "Configurations and migrations",
     "Configurations",
     "Extensions",
-    "Interfaces"
+    "Interfaces",
+    "Repository"
   ]
 }
