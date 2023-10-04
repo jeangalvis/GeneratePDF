@@ -11,5 +11,6 @@ public class ProductoConfiguration : IEntityTypeConfiguration<Producto>
 
         builder.Property(p => p.NombreProducto).HasColumnType("varchar").HasMaxLength(100).IsRequired();
         builder.Property(p => p.Stock).HasColumnType("int").HasMaxLength(10).IsRequired();
+        builder.Property(p => p.Precio).IsRequired();
     }
 }
