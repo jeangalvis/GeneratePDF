@@ -3,6 +3,14 @@
     "GitIgnore",
     "Entities",
     "Configurations and migrations",
-    "Configurations"
+    "Configurations",
+    "Extensions",
+    "Interfaces",
+    "Repository",
+    "UnitOfWork",
+    "Profiles",
+    "Controllers",
+    "Dto",
+    "Profiles"
   ]
 }

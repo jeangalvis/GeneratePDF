@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistencia;
 
@@ -10,9 +11,11 @@ using Persistencia;
 namespace Persistencia.Data.Migrations
 {
     [DbContext(typeof(GeneratePdfContext))]
-    partial class GeneratePdfContextModelSnapshot : ModelSnapshot
+    [Migration("20231004091651_SecondMig")]
+    partial class SecondMig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,6 +66,7 @@ namespace Persistencia.Data.Migrations
 
                     b.Property<decimal>("Precio")
                         .HasColumnType("decimal(65,30)");
+
                     b.Property<int>("Stock")
                         .HasMaxLength(10)
                         .HasColumnType("int");
