@@ -63,7 +63,6 @@ namespace Persistencia.Data.Migrations
 
                     b.Property<decimal>("Precio")
                         .HasColumnType("decimal(65,30)");
-
                     b.Property<int>("Stock")
                         .HasMaxLength(10)
                         .HasColumnType("int");
