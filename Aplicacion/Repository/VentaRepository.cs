@@ -3,6 +3,9 @@ using Dominio.Interfaces;
 using Dominio.Views;
 using Microsoft.EntityFrameworkCore;
 using Persistencia;
+using PdfSharpCore;
+using PdfSharpCore.Pdf;
+using TheArtOfDev.HtmlRenderer.PdfSharp;
 
 namespace Aplicacion.Repository;
 public class VentaRepository : GenericRepository<Venta>, IVenta
@@ -15,11 +18,14 @@ public class VentaRepository : GenericRepository<Venta>, IVenta
 
     public async Task<IEnumerable<VentasxAnio>> GetVentasxAnio(int anio)
     {
+        DateTime fechaInicio = new DateTime(anio, 1, 1);
+        DateTime fechaFinal = new DateTime(anio, 12, 31);
         return await (
                 from per in _context.Personas
                 join v in _context.Ventas on per.Id equals v.IdPersonafk
                 join pv in _context.ProductoVentas on v.Id equals pv.IdVentafk
                 join p in _context.Productos on pv.IdProductofk equals p.Id
+                where v.FechaVenta >= fechaInicio && v.FechaVenta <= fechaFinal
                 select new VentasxAnio
                 {
                     NombreProducto = p.NombreProducto,
@@ -29,5 +35,34 @@ public class VentaRepository : GenericRepository<Venta>, IVenta
                     Total = pv.Cantidad * p.Precio
                 }
         ).ToListAsync();
+    }
+
+    public Task<byte[]> GenPdf(IEnumerable<VentasxAnio> datos)
+    {
+        var document = new PdfDocument();
+        string HtmlContent = "";
+        
+        if (datos.Any())
+        {
+            foreach (var dato in datos)
+            {
+                HtmlContent += "<p>" + dato.NombreProducto + "</p>";
+            }
+            PdfGenerator.AddPdfPages(document, HtmlContent, PageSize.A4);
+        }
+        else
+        {
+            HtmlContent += "<p></p>";
+            PdfGenerator.AddPdfPages(document, HtmlContent, PageSize.A4);
+        }
+
+        byte[]? response;
+        using (MemoryStream ms = new MemoryStream())
+        {
+            document.Save(ms);
+            response = ms.ToArray();
+        }
+
+        return Task.FromResult(response);
     }
 }
