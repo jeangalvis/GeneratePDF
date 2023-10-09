@@ -8,5 +8,6 @@ public class MappingProfiles : Profile
     public MappingProfiles()
     {
         CreateMap<VentasxAnio, VentasxAnioDto>().ReverseMap();
+        CreateMap<TotalVentasxAnio, TotalVentasxAnioDto>().ReverseMap();
     }
 }
