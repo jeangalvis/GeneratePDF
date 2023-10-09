@@ -40,7 +40,13 @@ public class VentaRepository : GenericRepository<Venta>, IVenta
     public Task<byte[]> GenPdf(IEnumerable<VentasxAnio> datos)
     {
         var document = new PdfDocument();
-        string HtmlContent = "";
+        string HtmlContent = "<table>";
+        HtmlContent+="<tr>";
+        HtmlContent+="<th>ID</th>";
+        HtmlContent+="<th>NombreProducto</th>";
+        HtmlContent+="<th>Cantidad</th>";
+        HtmlContent+="</tr>";
+        HtmlContent+= "</table>";
         
         if (datos.Any())
         {
