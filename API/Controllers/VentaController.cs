@@ -63,4 +63,5 @@ public class VentaController : BaseApiController
         string base64 = Convert.ToBase64String(imgarray);
         return base64;
     }
+
 }

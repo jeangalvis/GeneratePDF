@@ -7,7 +7,6 @@ using PdfSharpCore;
 using PdfSharpCore.Pdf;
 using TheArtOfDev.HtmlRenderer.PdfSharp;
 
-
 namespace Aplicacion.Repository;
 public class VentaRepository : GenericRepository<Venta>, IVenta
 {
@@ -120,7 +119,6 @@ public class VentaRepository : GenericRepository<Venta>, IVenta
                 HtmlContent += "</tr>";
                 HtmlContent += "</table>";
                 HtmlContent += "</div>";
-
             }
             PdfGenerator.AddPdfPages(document, HtmlContent, PageSize.A4);
         }
@@ -128,6 +126,7 @@ public class VentaRepository : GenericRepository<Venta>, IVenta
         {
             HtmlContent += "</table>";
             HtmlContent += "</div>";
+
             PdfGenerator.AddPdfPages(document, HtmlContent, PageSize.A4);
         }
 
