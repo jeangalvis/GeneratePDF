@@ -6,5 +6,6 @@ namespace Dominio.Interfaces;
 public interface IVenta : IGeneric<Venta>
 {
     Task<IEnumerable<VentasxAnio>> GetVentasxAnio(int anio);
-    Task<byte[]> GenPdf(IEnumerable<VentasxAnio> datos);
+    Task<TotalVentasxAnio> GetTotalVentasxAnio(int anio);
+    Task<byte[]> GenPdf(IEnumerable<VentasxAnio> datos, TotalVentasxAnio resumen, string image);
 }
